@@ -1,0 +1,54 @@
+{
+	"users": {
+		"where": {
+			"age": { "and": [{ "gt": 18 }, { "lt": 20 }] }
+		},
+		"select": [
+			"name",
+			"age",
+			{
+				"comments": {
+					"where": {
+						"created_at": { "gt": 2015 }
+					},
+					"select": [
+						"user_id",
+						"text"
+					]
+				}
+			}
+		]
+	}
+}
+
+{
+	"users": {
+		"filter": {
+			"and": [
+				{"age": {"gt": 25}},
+				{"age": {"lt": 45}}
+			]
+			"contains": [
+				"comments"
+			]
+		},
+		"select": [
+			"name",
+			"user_id",
+			{
+				"comments": ""
+			}
+		]
+	}
+}
+
+{
+	"users": {
+		"where": {
+			"name": "Jon",
+		},
+		"select": [
+			"user_id"
+		]
+	}
+}f
